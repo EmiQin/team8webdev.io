@@ -1,0 +1,147 @@
+#bgImgTitle {
+  background-image: -webkit-linear-gradient(top, 
+      rgba(0,0,0,0.9) 0%, 
+      rgba(0,0,0,0) 20%,
+      rgba(0,0,0,0) 80%,
+      rgba(0,0,0,0.9) 100%
+    ),
+    -webkit-linear-gradient(left, 
+      rgba(0,0,0,0.9) 0%, 
+      rgba(0,0,0,0) 20%,
+      rgba(0,0,0,0) 80%,
+      rgba(0,0,0,0.9) 100%
+    ),
+    url("bg.jpeg");
+    
+ 
+  background-size: cover;
+}
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+  padding-top: 20px;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('/w3images/parallax1.jpg');
+  min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("/w3images/parallax2.jpg");
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("/w3images/parallax3.jpg");
+  min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+
+/* for word cloud*/
+ul.cloud {
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    line-height: 2.75rem;
+    width: 450px;
+    text-align: center
+  }
+
+  ul.cloud a {
+    /*
+    Not supported by any browser at the moment 😦
+    --size: attr(data-weight number); 
+    */
+    --size: 4;
+    --color: rgb(80, 79, 79);
+    color: var(--color);
+    font-size: calc(var(--size) * 0.25rem + 0.5rem);
+    display: block;
+    padding: 0.125rem 0.25rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center
+    /* 
+    For different tones of a single color
+    opacity: calc((15 - (9 - var(--size))) / 15); 
+    */
+  }
+
+  ul.cloud a[data-weight="1"] { --size: 1; }
+  ul.cloud a[data-weight="2"] { --size: 2; }
+  ul.cloud a[data-weight="3"] { --size: 3; }
+  ul.cloud a[data-weight="4"] { --size: 4; }
+  ul.cloud a[data-weight="5"] { --size: 6; }
+  ul.cloud a[data-weight="6"] { --size: 8; }
+  ul.cloud a[data-weight="7"] { --size: 10; }
+  ul.cloud a[data-weight="8"] { --size: 13; }
+  ul.cloud a[data-weight="9"] { --size: 16; }
+
+  ul[data-show-value] a::after {
+    content: " (" attr(data-weight) ")";
+    font-size: 1rem;
+  }
+
+  ul.cloud li:nth-child(2n+1) a { --color: rgb(187, 187, 187); }
+  ul.cloud li:nth-child(3n+1) a { --color: rgb(168, 168, 168); }
+  ul.cloud li:nth-child(4n+1) a { --color: rgb(126, 126, 126); }
+
+  ul.cloud a:focus {
+    outline: 1px dashed;
+  }
+
+  ul.cloud a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background: var(--color);
+    transform: translate(-50%, 0);
+    opacity: 0.15;
+    transition: width 0.25s;
+  }
+
+  ul.cloud a:focus::before,
+  ul.cloud a:hover::before {
+    width: 100%;
+  }
+
+  @media (prefers-reduced-motion) {
+    ul.cloud * {
+      transition: none !important;
+    }
+  }
+
+.introTable {
+  width: 100%;
+}
